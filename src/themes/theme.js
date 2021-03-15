@@ -1,14 +1,23 @@
-export default {
+export const theme = {
     font:{
         size:{
-            xs: '10px',
-            sm: '12px',
-            md: '16px',
-            lg: '20px',
-            xl: '54px',
+            desktop:{
+                xs: '12px',
+                sm: '16px',
+                md: '18px',
+                lg: '22px',
+                xl: '40px',
+                title: '54px',
+            },
+           
         },
         family: 'Rubik',
-        
+        weight:{
+            regular:400,
+            medium:500,
+            bold:700,
+            black:900,
+        }
     },
     colors:{
         primary:'#F8C100',
