@@ -5,7 +5,6 @@ export const HeaderWrapper = styled.nav`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding-right: 100px;
 `;
 
 export const NavbarLinks = styled.ul`
@@ -16,9 +15,9 @@ export const NavbarLinks = styled.ul`
 `;
 
 export const NavbarLink = styled(Link)`
-    font-size: ${props => props.theme.font.size.desktop.md};
-    color: ${props => props.theme.colors.secondary};
-    font-weight: ${props => props.theme.font.weight.medium};
+    font-size: ${(props) => props.theme.font.size.desktop.md};
+    color: ${(props) => props.theme.colors.secondary};
+    font-weight: ${(props) => props.theme.font.weight.medium};
     padding-left:30px;
     text-transform: uppercase;
     text-decoration: none;

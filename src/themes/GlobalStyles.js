@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap');
 
     *, *::before, *::after {
         box-sizing: border-box;
@@ -10,9 +10,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body, html {
-        font-family: ${props => props.theme.font.family};
-        color: ${props => props.theme.colors.secondary};
-        font-weight: ${props => props.theme.font.weight.regular};
+        font-family: ${(props) => props.theme.font.family};
+        color: ${(props) => props.theme.colors.secondary};
+        font-weight: ${(props) => props.theme.font.weight.regular};
     }
     
 `;
