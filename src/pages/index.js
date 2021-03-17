@@ -1,12 +1,12 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import * as React from 'react';
+import Layout from '../templates/Layout/Layout';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
+const HomePage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Strona</h1>
+    <SEO title="Projects" />
+    <div>Strona</div>
   </Layout>
-)
+);
 
-export default IndexPage
+export default HomePage;
