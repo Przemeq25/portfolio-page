@@ -1,13 +1,16 @@
 import React from 'react';
 import { HeaderWrapper, NavbarLink, NavbarLinks } from './Header.style';
+import { menuData } from '../../data/menuData';
 
 const Header = () => (
   <HeaderWrapper>
     <h2>PCichoń</h2>
     <NavbarLinks>
-      <NavbarLink to="/projects">Projects</NavbarLink>
-      <NavbarLink to="/about">About</NavbarLink>
-      <NavbarLink to="/contact">Contact</NavbarLink>
+      {menuData.map(({ title, link }) => (
+        <NavbarLink to={link} activeClassName="active">
+          {title}
+        </NavbarLink>
+      ))}
     </NavbarLinks>
   </HeaderWrapper>
 );

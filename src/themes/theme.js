@@ -28,4 +28,10 @@ export const theme = {
       tertiary: '#DCDBDB',
     },
   },
+  mediaBreakpoints: {
+    sm: '@media all and (max-width: 600px)',
+    md: '@media all and (max-width:960px)',
+    lg: '@media all and (max-width:1280px)',
+    xl: '@media all and (max-width:1920px)',
+  },
 };

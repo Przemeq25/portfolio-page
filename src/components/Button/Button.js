@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledButton from './Button.style';
+import { StyledButton } from './Button.style';
 
 const Button = ({ light, text }) => (
   <StyledButton light={light}>{text}</StyledButton>
