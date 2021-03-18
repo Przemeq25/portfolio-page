@@ -7,7 +7,7 @@ const Header = () => (
     <h2>PCichoń</h2>
     <NavbarLinks>
       {menuData.map(({ title, link }) => (
-        <NavbarLink to={link} activeClassName="active">
+        <NavbarLink to={link} key={title} activeClassName="active">
           {title}
         </NavbarLink>
       ))}

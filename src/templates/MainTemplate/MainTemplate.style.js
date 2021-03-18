@@ -4,7 +4,7 @@ export const MainTemplateWrapper = styled.div`
   padding: 100px 0px 100px 100px;
   display: flex;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     flex-direction: column;
@@ -18,7 +18,6 @@ export const MainTemplateWrapper = styled.div`
 
 export const LeftContainer = styled.div`
   width: 600px;
-  height: 100%;
   margin-right: 80px;
   position: relative;
   display: flex;
@@ -83,4 +82,8 @@ export const MediaLink = styled.a`
 
 export const MainContainer = styled.main`
   width: 100%;
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    height: 100vw;
+  }
 `;

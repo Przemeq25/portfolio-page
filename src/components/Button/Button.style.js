@@ -5,7 +5,7 @@ export const StyledButton = styled.button`
       light ? theme.colors.contrastText : theme.colors.secondary};
     text-transform: uppercase;
     font-size: ${({ theme }) => theme.font.size.desktop.md};
-    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
     background: none;
     border: none;
     cursor: pointer;
@@ -21,6 +21,7 @@ export const StyledButton = styled.button`
             left: 20px;
             z-index: -1;
             border-bottom: 8px solid ${({ theme }) => theme.colors.primary};
+            border-radius: 2px;
             width: 100%;
             transition: 200ms all ease-in-out;
         }
