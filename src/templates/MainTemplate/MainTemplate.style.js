@@ -85,5 +85,7 @@ export const MainContainer = styled.main`
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     height: 100vw;
+    max-height: 100vh;
+    padding: 10px 0px;
   }
 `;

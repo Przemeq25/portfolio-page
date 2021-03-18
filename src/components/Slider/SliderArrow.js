@@ -4,8 +4,8 @@ import { Arrow, ArrowsContainer } from './Slider.styles';
 
 const SliderArrow = ({ prevSlide, nextSlide }) => (
   <ArrowsContainer>
-    <Arrow direction="up" onClick={prevSlide} />;
-    <Arrow direction="down" onClick={nextSlide} />;
+    <Arrow direction="up" onClick={prevSlide} />
+    <Arrow direction="down" onClick={nextSlide} />
   </ArrowsContainer>
 );
 

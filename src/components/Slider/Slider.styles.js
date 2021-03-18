@@ -14,9 +14,14 @@ export const SliderWrapper = styled.div`
 `;
 
 export const SliderContent = styled.div`
-  transform: translateX(-${(props) => props.translate}px);
-  transition: transform ease-out ${(props) => props.transition}s;
+  transform: translateY(-${({ translate }) => translate}px);
+  transition: transform ease-out 200ms;
   ${boxSize};
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    display: flex;
+    transform: translateX(-${({ translate }) => translate}px);
+  }
 `;
 
 export const Slide = styled.div`
@@ -25,13 +30,14 @@ export const Slide = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  flex-shrink: 0;
 `;
 
 export const Arrow = styled.div`
   border: solid ${({ theme }) => theme.colors.contrastText};
   border-width: 0 10px 10px 0;
   display: inline-block;
-  padding: 10px;
+  padding: 15px;
   border-radius: 3px;
   transform: ${({ direction }) =>
     direction === 'up' ? 'rotate(-135deg)' : 'rotate(45deg)'};
