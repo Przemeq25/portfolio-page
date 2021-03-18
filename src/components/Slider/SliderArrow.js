@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Arrow, ArrowsContainer } from './Slider.styles';
 
-const SliderArrow = ({ prevSlide, nextSlide }) => (
+const SliderArrows = ({ prevSlide, nextSlide }) => (
   <ArrowsContainer>
     <Arrow direction="up" onClick={prevSlide} />
     <Arrow direction="down" onClick={nextSlide} />
   </ArrowsContainer>
 );
 
-export default SliderArrow;
+export default SliderArrows;
 
-SliderArrow.propTypes = {
+SliderArrows.propTypes = {
   prevSlide: PropTypes.func.isRequired,
   nextSlide: PropTypes.func.isRequired,
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Slide, SliderContent, SliderWrapper } from './Slider.styles';
-import SliderArrow from './SliderArrow';
+import { SliderContent, SliderWrapper } from './Slider.styles';
+import SliderArrows from './SliderArrow';
+import Slide from './Slide';
 
 const Slider = ({ slides }) => {
   const sliderRef = useRef(null);
@@ -55,7 +56,7 @@ const Slider = ({ slides }) => {
           <Slide content={slide} key={slide} />
         ))}
       </SliderContent>
-      <SliderArrow nextSlide={nextSlide} prevSlide={prevSlide} />
+      <SliderArrows nextSlide={nextSlide} prevSlide={prevSlide} />
     </SliderWrapper>
   );
 };

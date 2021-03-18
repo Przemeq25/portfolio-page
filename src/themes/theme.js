@@ -2,16 +2,17 @@ export const theme = {
   font: {
     size: {
       desktop: {
-        xs: '12px',
+        xs: '14px',
         sm: '16px',
         md: '18px',
         lg: '22px',
-        xl: '40px',
+        xl: '48px',
         title: '54px',
       },
     },
     family: 'Rubik',
     weight: {
+      light: 300,
       regular: 400,
       medium: 500,
       bold: 700,
