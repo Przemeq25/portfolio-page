@@ -9,6 +9,14 @@ export const theme = {
         xl: '48px',
         title: '54px',
       },
+      mobile: {
+        xs: '10px',
+        sm: '12px',
+        md: '14px',
+        lg: '18px',
+        xl: '22px',
+        title: '40px',
+      },
     },
     family: 'Rubik',
     weight: {

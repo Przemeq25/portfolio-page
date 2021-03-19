@@ -49,11 +49,5 @@ export const NavbarLink = styled(Link)`
       border-radius: 2px;
       animation: ${lineTroughAnimation} 0.3s 0s forwards;
     }
-
-    @keyframes sheen {
-      100% {
-        transform: rotateZ(60deg) translate(1em, -9em);
-      }
-    }
   }
 `;

@@ -49,6 +49,10 @@ export const HeroParagraph = styled.p`
   font-size ${({ theme }) => theme.font.size.desktop.lg};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   text-transform: capitalize;
+
+  ${({ theme }) => theme.mediaBreakpoints.sm} {
+    font-size ${({ theme }) => theme.font.size.mobile.lg};
+  }
 `;
 
 export const HeroH1 = styled.h1`
@@ -57,6 +61,10 @@ export const HeroH1 = styled.h1`
   font-weight: ${({ theme }) => theme.font.weight.black};
   text-transform: uppercase;
   margin: 20px 0 40px;
+
+  ${({ theme }) => theme.mediaBreakpoints.sm} {
+    font-size ${({ theme }) => theme.font.size.mobile.title};
+  }
 `;
 
 export const MediaLinksContainer = styled.div`
@@ -77,6 +85,10 @@ export const MediaLink = styled.a`
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    display:none
   }
 `;
 

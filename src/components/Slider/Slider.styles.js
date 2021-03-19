@@ -69,15 +69,15 @@ export const ArrowsContainer = styled.div`
   transform: translateY(-50%);
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
-    transform: translateY(-50%) rotate(-90deg) translateY(50%);
+    transform: translateY(-50%) rotate(-90deg) translateY(10%);
   }
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
-    left: 30px;
+    left: 50px;
   }
 
   ${({ theme }) => theme.mediaBreakpoints.sm} {
-    left: 10px;
+    left: 20px;
   }
 `;
 
@@ -86,6 +86,7 @@ export const ContentContainer = styled.div`
   padding: 30px 10px 30px 150px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   background: linear-gradient(
@@ -98,12 +99,12 @@ export const ContentContainer = styled.div`
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     justify-content: flex-end;
-    padding-left: 30px;
+    padding-left: 50px;
   }
 
   ${({ theme }) => theme.mediaBreakpoints.sm} {
     justify-content: flex-end;
-    padding-left: 10px;
+    padding-left: 20px;
   }
 `;
 
@@ -112,6 +113,10 @@ export const SlideParagraph = styled.p`
   color: ${({ theme }) => theme.colors.background.tertiary};
   font-weight: ${({ theme }) => theme.font.weight.light};
   letter-spacing: 2px;
+
+  ${({ theme }) => theme.mediaBreakpoints.md} {
+    font-size: ${({ theme }) => theme.font.size.mobile.sm};
+  }
 `;
 
 export const SlideTitle = styled.h2`
@@ -119,4 +124,56 @@ export const SlideTitle = styled.h2`
   color: ${({ theme }) => theme.colors.contrastText};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   letter-spacing: 2px;
+
+  ${({ theme }) => theme.mediaBreakpoints.md} {
+    font-size: ${({ theme }) => theme.font.size.mobile.xl};
+  }
+`;
+
+export const SliderCounterWrapper = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  ddisplay: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 60px;
+
+  ${({ theme }) => theme.mediaBreakpoints.md} {
+    top: 20px;
+    width: 40px;
+  }
+`;
+
+export const SliderCounterItem = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 500ms width ease-in;
+
+  &:after {
+    transition: 500ms width ease-in;
+    content: '';
+    height: 5px;
+    width: 100%;
+    border-radius: 2px;
+    margin: 3px 0 5px ${({ currentSlide }) => (currentSlide ? '4px' : 0)};
+    background-color: ${({ currentSlide, theme }) =>
+      currentSlide ? theme.colors.primary : theme.colors.contrastText};
+
+    ${({ theme }) => theme.mediaBreakpoints.md} {
+      margin: 2px 0 2px ${({ currentSlide }) => (currentSlide ? '4px' : 0)};
+    }
+  }
+`;
+
+export const SliderCounterItemParagraph = styled.p`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.font.size.desktop.xs};
+  font-weight: ${({ theme }) => theme.font.weight.medium};
+  display: ${({ currentSlide }) => (currentSlide ? 'block' : 'none')};
+
+  ${({ theme }) => theme.mediaBreakpoints.md} {
+    font-size: ${({ theme }) => theme.font.size.mobile.xs};
+  }
 `;

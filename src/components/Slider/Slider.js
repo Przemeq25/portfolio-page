@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { SliderContent, SliderWrapper } from './Slider.styles';
 import SliderArrows from './SliderArrow';
 import Slide from './Slide';
+import SliderCounter from './SliderCounter';
 
 const Slider = ({ slides }) => {
   const sliderRef = useRef(null);
@@ -49,6 +50,11 @@ const Slider = ({ slides }) => {
     }
   };
 
+  const pickSlide = (slideIndex) => {
+    setTranslate(slideIndex * sizeToTranslate);
+    setActiveSlideIndex(slideIndex);
+  };
+
   return (
     <SliderWrapper>
       <SliderContent ref={sliderRef} translate={translate}>
@@ -57,6 +63,11 @@ const Slider = ({ slides }) => {
         ))}
       </SliderContent>
       <SliderArrows nextSlide={nextSlide} prevSlide={prevSlide} />
+      <SliderCounter
+        current={activeSlideIndex}
+        slides={slides}
+        pickSlide={pickSlide}
+      />
     </SliderWrapper>
   );
 };

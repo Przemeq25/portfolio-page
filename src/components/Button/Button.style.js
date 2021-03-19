@@ -37,5 +37,10 @@ export const StyledButton = styled.button`
         }
         
     }
+
+    ${({ theme }) => theme.mediaBreakpoints.md} {
+      font-size: ${({ theme, small }) =>
+        small ? theme.font.size.mobile.xs : theme.font.size.mobile.md};
+    }
     
 `;
