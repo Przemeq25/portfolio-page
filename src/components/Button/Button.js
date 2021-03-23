@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './Button.style';
 
-const Button = ({ light, text }) => (
-  <StyledButton light={light}>{text}</StyledButton>
+const Button = ({ light, children, small }) => (
+  <StyledButton light={light} small={small}>
+    {children}
+  </StyledButton>
 );
 export default Button;
 
 Button.propTypes = {
   light: PropTypes.bool,
-  text: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+  children: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
   light: false,
+  small: false,
 };

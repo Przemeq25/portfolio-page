@@ -25,11 +25,13 @@ const MainTemplate = ({ children }) => (
           <br />
           Cichoń
         </HeroH1>
-        <Button text="Contact me" />
+        <Button>Contact me</Button>
       </HeroContainer>
       <MediaLinksContainer>
         {mediaLinks.map(({ title, path }) => (
-          <MediaLink href={path}>{title}</MediaLink>
+          <MediaLink href={path} key={title}>
+            {title}
+          </MediaLink>
         ))}
       </MediaLinksContainer>
     </LeftContainer>

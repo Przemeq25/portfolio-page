@@ -46,13 +46,8 @@ export const NavbarLink = styled(Link)`
       position: absolute;
       transform: translate(30px, -50%);
       border-bottom: 4px solid ${({ theme }) => theme.colors.primary};
+      border-radius: 2px;
       animation: ${lineTroughAnimation} 0.3s 0s forwards;
-    }
-
-    @keyframes sheen {
-      100% {
-        transform: rotateZ(60deg) translate(1em, -9em);
-      }
     }
   }
 `;

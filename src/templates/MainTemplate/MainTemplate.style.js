@@ -4,7 +4,7 @@ export const MainTemplateWrapper = styled.div`
   padding: 100px 0px 100px 100px;
   display: flex;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     flex-direction: column;
@@ -18,7 +18,6 @@ export const MainTemplateWrapper = styled.div`
 
 export const LeftContainer = styled.div`
   width: 600px;
-  height: 100%;
   margin-right: 80px;
   position: relative;
   display: flex;
@@ -50,6 +49,10 @@ export const HeroParagraph = styled.p`
   font-size ${({ theme }) => theme.font.size.desktop.lg};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   text-transform: capitalize;
+
+  ${({ theme }) => theme.mediaBreakpoints.sm} {
+    font-size ${({ theme }) => theme.font.size.mobile.lg};
+  }
 `;
 
 export const HeroH1 = styled.h1`
@@ -58,6 +61,10 @@ export const HeroH1 = styled.h1`
   font-weight: ${({ theme }) => theme.font.weight.black};
   text-transform: uppercase;
   margin: 20px 0 40px;
+
+  ${({ theme }) => theme.mediaBreakpoints.sm} {
+    font-size ${({ theme }) => theme.font.size.mobile.title};
+  }
 `;
 
 export const MediaLinksContainer = styled.div`
@@ -79,8 +86,18 @@ export const MediaLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    display:none
+  }
 `;
 
 export const MainContainer = styled.main`
   width: 100%;
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    height: 100vw;
+    max-height: 100vh;
+    padding: 10px 0px;
+  }
 `;
