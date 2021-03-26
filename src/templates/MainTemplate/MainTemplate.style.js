@@ -96,8 +96,9 @@ export const MainContainer = styled.main`
   width: 100%;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
-    height: 100vw;
-    max-height: 100vh;
     padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 `;
