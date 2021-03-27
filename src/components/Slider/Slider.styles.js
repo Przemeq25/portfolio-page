@@ -11,6 +11,10 @@ export const SliderWrapper = styled.div`
   overflow: hidden;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 2px;
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    height: 100vw;
+  }
 `;
 
 export const SliderContent = styled.div`

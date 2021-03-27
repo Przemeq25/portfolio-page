@@ -3,7 +3,7 @@ export const theme = {
     size: {
       desktop: {
         xs: '14px',
-        sm: '18px',
+        sm: '16px',
         md: '20px',
         lg: '28px',
         xl: '48px',
@@ -11,7 +11,7 @@ export const theme = {
       },
       mobile: {
         xs: '10px',
-        sm: '14px',
+        sm: '12px',
         md: '16px',
         lg: '22px',
         xl: '32px',

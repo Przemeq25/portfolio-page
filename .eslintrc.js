@@ -16,5 +16,13 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'linebreak-style': 0,
     'import/prefer-default-export': 'off',
+    'react/jsx-props-no-spreading': [
+      'error',
+      {
+        html: 'ignore',
+        custom: 'ignore',
+        exceptions: [''],
+      },
+    ],
   },
 };

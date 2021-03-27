@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledParagraph } from './Paragraph.styles';
 
-const Paragraph = ({ children, size, weight, color, margin }) => (
-  <StyledParagraph size={size} weight={weight} color={color} margin={margin}>
+const Paragraph = ({ children, size, weight, color, margin, ...rest }) => (
+  <StyledParagraph
+    size={size}
+    weight={weight}
+    color={color}
+    margin={margin}
+    {...rest}
+  >
     {children}
   </StyledParagraph>
 );

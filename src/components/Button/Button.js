@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './Button.style';
 
-const Button = ({ light, children, small }) => (
-  <StyledButton light={light} small={small}>
+const Button = ({ light, children, small, ...rest }) => (
+  <StyledButton light={light} small={small} {...rest}>
     {children}
   </StyledButton>
 );

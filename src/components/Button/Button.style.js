@@ -19,8 +19,8 @@ export const StyledButton = styled.button`
     &:after {
         content: '';
         position: absolute;
-        bottom: -5px;
-        left: 20px;
+        bottom: ${({ small }) => (small ? '-3px' : '-5px')};
+        left: ${({ small }) => (small ? '12px' : '20px')};
         z-index: -1;
         border-bottom: ${({ small }) => (small ? 6 : 8)}px solid ;
         border-color: ${({ theme }) => theme.colors.primary};
@@ -30,7 +30,8 @@ export const StyledButton = styled.button`
         }
 
         &:hover::after, &:active::after{
-            transform: translate(-15px, -5px);
+            transform: ${({ small }) =>
+              small ? 'translate(-10px, -3px)' : 'translate(-15px, -5px)'};
         }
         &:active {
             transform: scale(0.95);
