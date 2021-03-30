@@ -10,6 +10,7 @@ const Heading = ({
   variant,
   transform,
   margin,
+  ...rest
 }) => (
   <StyledHeading
     as={variant}
@@ -18,6 +19,7 @@ const Heading = ({
     color={color}
     transform={transform}
     margin={margin}
+    {...rest}
   >
     {children}
   </StyledHeading>

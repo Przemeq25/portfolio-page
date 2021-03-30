@@ -6,7 +6,7 @@ export const StyledButton = styled.button`
     text-transform: uppercase;
     font-size: ${({ theme, small }) =>
       small ? theme.font.size.desktop.xs : theme.font.size.desktop.md};
-    font-weight: ${({ theme }) => theme.font.weight.regular};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
     font-family: inherit;
     background: none;
     border: none;

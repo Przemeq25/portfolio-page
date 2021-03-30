@@ -14,12 +14,21 @@ const ProjectInfo = ({ projectInfo }) => (
       <ProjectInfoList>
         {projectInfo.map(({ title, items }) => (
           <ProjectInfoListItem key={title}>
-            <ProjectInfoListItemText size="md" weight="medium" margin={10}>
+            <ProjectInfoListItemText
+              size="md"
+              weight="medium"
+              margin={10}
+              color="tertiary"
+            >
               {title}
             </ProjectInfoListItemText>
 
             {items.split(', ').map((item) => (
-              <ProjectInfoListItemText size="xs" weight="light">
+              <ProjectInfoListItemText
+                size="xs"
+                weight="light"
+                color="tertiary"
+              >
                 {item}
               </ProjectInfoListItemText>
             ))}
