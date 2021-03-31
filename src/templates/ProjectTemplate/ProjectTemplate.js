@@ -1,9 +1,11 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import Paragraph from '../../components/Paragraph/Paragraph';
 import { ProjectContainer } from '../../components/ProjectContainer/ProjectContainer.styles';
+import ProjectHeader from '../../components/ProjectHeader/ProjectHeader';
+import ProjectHeroSection from '../../components/ProjectHeroSection/ProjectHeroSection';
 import ProjectInfo from '../../components/ProjectInfo/ProjectInfo';
+
 import {
   ContentBackgroundContainer,
   ContentImage,
@@ -13,10 +15,6 @@ import {
   DescrtiptionImage,
   ProjectFooter,
   HeadingWithLine,
-  HeroImg,
-  HeroSection,
-  HeroWrapper,
-  LinksWrapper,
   ProjectDescrtiptionSection,
   StyledSpan,
   ProjectFooterInfoWrapper,
@@ -44,23 +42,13 @@ const projectInfo = [
 
 const ProjectTemplate = () => (
   <>
-    <HeroSection>
-      <HeroImg content={images[0]} />
-      <ProjectContainer>
-        <HeroWrapper>
-          <Heading size="title" weight="black" transform="capitalize">
-            Restaurant Management
-          </Heading>
-          <Paragraph size="sm" margin={40} color="tertiary">
-            Mobile & Web application
-          </Paragraph>
-          <LinksWrapper>
-            <Button small>GitHub</Button>
-            <Button small>Live</Button>
-          </LinksWrapper>
-        </HeroWrapper>
-      </ProjectContainer>
-    </HeroSection>
+    <ProjectHeader />
+    <ProjectHeroSection
+      image={images[0]}
+      github="https:/123123"
+      title="Restaurant Management"
+      subtitle="Mobile & Web application"
+    />
     <ProjectInfo projectInfo={projectInfo} />
 
     <ProjectDescrtiptionSection>
@@ -170,5 +158,4 @@ const ProjectTemplate = () => (
     </ProjectFooter>
   </>
 );
-
 export default ProjectTemplate;

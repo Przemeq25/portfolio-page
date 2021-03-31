@@ -2,42 +2,6 @@ import styled, { css } from 'styled-components';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 
-export const HeroImg = styled.div`
-  height: 60vh;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(0, 0, 0, 0.6558824213279062) 0%,
-      rgba(0, 0, 0, 0.3) 72%
-    ),
-    url(${({ content }) => content});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-`;
-
-export const HeroSection = styled.section`
-  min-height: 100vh;
-`;
-
-export const HeroWrapper = styled.div`
-  margin: 50px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    margin: 20px 0px;
-  }
-`;
-
-export const LinksWrapper = styled.div`
-  width: 200px;
-  display: flex;
-  justify-content: space-around;
-`;
-
 export const ProjectDescrtiptionSection = styled.section`
   padding: 200px 0;
   transition: all 0.3s ease-in-out;

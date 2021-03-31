@@ -20,7 +20,7 @@ Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   weight: PropTypes.oneOf(['light', 'regular', 'medium', 'bold', 'black']),
-  color: PropTypes.oneOf(['primary', 'secondary', 'contrastText']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'contrastText', 'tertiary']),
   margin: PropTypes.number,
 };
 

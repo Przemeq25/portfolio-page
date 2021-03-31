@@ -25,6 +25,7 @@ const ProjectInfo = ({ projectInfo }) => (
 
             {items.split(', ').map((item) => (
               <ProjectInfoListItemText
+                key={item}
                 size="xs"
                 weight="light"
                 color="tertiary"
