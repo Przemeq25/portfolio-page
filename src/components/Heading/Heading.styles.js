@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeading = styled.h1`
+  position: relative;
   text-transform: ${({ transform }) =>
     transform === 'uppercase' ? 'uppercase' : 'capitalize'};
   margin-bottom: ${({ margin }) => margin}px;

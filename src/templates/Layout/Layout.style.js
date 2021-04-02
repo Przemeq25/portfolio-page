@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const shapeStyle = css`
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
 `;
 
 export const BackgroundShapePrimary = styled.div`

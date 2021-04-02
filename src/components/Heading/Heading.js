@@ -10,6 +10,7 @@ const Heading = ({
   variant,
   transform,
   margin,
+  ...rest
 }) => (
   <StyledHeading
     as={variant}
@@ -18,6 +19,7 @@ const Heading = ({
     color={color}
     transform={transform}
     margin={margin}
+    {...rest}
   >
     {children}
   </StyledHeading>
@@ -27,7 +29,7 @@ export default Heading;
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(['lg', 'xl', 'title']),
+  size: PropTypes.oneOf(['md', 'lg', 'xl', 'title']),
   weight: PropTypes.oneOf(['medium', 'bold', 'black']),
   color: PropTypes.oneOf(['primary', 'secondary', 'contrastText']),
   variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']),

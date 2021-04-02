@@ -5,7 +5,7 @@ export const theme = {
         xs: '14px',
         sm: '16px',
         md: '20px',
-        lg: '28px',
+        lg: '36px',
         xl: '48px',
         title: '54px',
       },
@@ -13,12 +13,12 @@ export const theme = {
         xs: '10px',
         sm: '12px',
         md: '16px',
-        lg: '22px',
+        lg: '28px',
         xl: '32px',
         title: '40px',
       },
     },
-    family: 'Rubik',
+    family: 'Montserrat, sans-serif',
     weight: {
       light: 300,
       regular: 400,
@@ -30,11 +30,12 @@ export const theme = {
   colors: {
     primary: '#F8C100',
     secondary: '#000000',
+    tertiary: '#54595F',
     contrastText: '#FFFFFF',
     background: {
       primary: '#FAFAFA',
-      secondary: '#F0F0F0',
-      tertiary: '#DCDBDB',
+      secondary: '#F9F9F9',
+      tertiary: '#F8C100',
     },
   },
   mediaBreakpoints: {
