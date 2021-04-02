@@ -24,12 +24,11 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
     });
 
     const tl = gsap.timeline([imageRef.current, ...heroRef.current.children], {
-      default: { ease: 'power1.inOut' },
+      defaults: { ease: 'power3.inOut' },
     });
 
     tl.to(imageRef.current, {
       autoAlpha: 1,
-      duration: 1,
     }).fromTo(
       heroRef.current.children,
       { y: '-=10' },

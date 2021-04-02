@@ -1,27 +1,11 @@
 import React from 'react';
-import Heading from '../../components/Heading/Heading';
-import Paragraph from '../../components/Paragraph/Paragraph';
-import { ProjectContainer } from '../../components/ProjectContainer/ProjectContainer.styles';
 import ProjectHeader from '../../components/ProjectHeader/ProjectHeader';
 import ProjectHeroSection from '../../components/ProjectHeroSection/ProjectHeroSection';
 import ProjectInfo from '../../components/ProjectInfo/ProjectInfo';
+import ProjectDescriptionSection from '../../components/ProjectDescriptionSection/ProjectDescriptionSection';
 
-import {
-  ContentBackgroundContainer,
-  ContentImage,
-  ContentTextWrapper,
-  ContentSection,
-  DescriptionTextWrapper,
-  DescrtiptionImage,
-  ProjectFooter,
-  HeadingWithLine,
-  ProjectDescrtiptionSection,
-  StyledSpan,
-  ProjectFooterInfoWrapper,
-  DescriptionWrappepr,
-  FooterActionWrapper,
-  BackToTopButton,
-} from './ProjectTemplate.styles';
+import ProjectContent from '../../components/ProjectContent/ProjectContent';
+import ProjectFooter from '../../components/ProjectFooter/ProjectFooter';
 
 const images = [
   'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
@@ -40,6 +24,27 @@ const projectInfo = [
   { title: 'Date', items: '09.2020 - 02.2021' },
 ];
 
+const content = [
+  {
+    title: 'Take control of your restaurant',
+    description:
+      'Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.',
+    images,
+    center: true,
+    skewLeft: true,
+    color: 'tertiary',
+  },
+  {
+    title: 'Order meal whenever you want',
+    description:
+      'Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.',
+    images: [images[0], images[1]],
+    center: true,
+    light: true,
+    color: 'secondary',
+  },
+];
+
 const ProjectTemplate = () => (
   <>
     <ProjectHeader />
@@ -51,111 +56,16 @@ const ProjectTemplate = () => (
     />
     <ProjectInfo projectInfo={projectInfo} />
 
-    <ProjectDescrtiptionSection>
-      <ProjectContainer>
-        <DescriptionWrappepr>
-          <DescriptionTextWrapper>
-            <Heading
-              size="lg"
-              weight="black"
-              transform="capitalize"
-              variant="h3"
-              margin={30}
-            >
-              What is <StyledSpan>Restaurant Management</StyledSpan>?
-            </Heading>
-            <Paragraph size="md" color="tertiary">
-              Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w
-              przemyśle poligraficznym. Został po raz pierwszy użyty w XV w.
-              przez nieznanego drukarza do wypełnienia tekstem próbnej książki.
-            </Paragraph>
-          </DescriptionTextWrapper>
-          <DescrtiptionImage content={images[1]} />
-        </DescriptionWrappepr>
-      </ProjectContainer>
-    </ProjectDescrtiptionSection>
+    <ProjectDescriptionSection
+      title="Restaurant Management"
+      description="Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki."
+      descriptionImage={images[0]}
+    />
+    {content.map((contentArticle) => (
+      <ProjectContent key={contentArticle.title} {...contentArticle} />
+    ))}
 
-    <ContentSection>
-      <ContentBackgroundContainer center skewLeft color="tertiary">
-        <ProjectContainer>
-          <ContentTextWrapper>
-            <HeadingWithLine
-              size="lg"
-              weight="black"
-              transform="capitalize"
-              variant="h3"
-            >
-              Take control of your restaurant
-            </HeadingWithLine>
-            <Paragraph size="md">
-              Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w
-              przemyśle poligraficznym. Został po raz pierwszy użyty w XV w.
-              przez nieznanego drukarza do wypełnienia tekstem próbnej książki.
-            </Paragraph>
-          </ContentTextWrapper>
-        </ProjectContainer>
-      </ContentBackgroundContainer>
-      <ProjectContainer>
-        <ContentImage content={images[2]} />
-        <ContentImage content={images[3]} />
-      </ProjectContainer>
-      <ContentBackgroundContainer center skewRight color="secondary" light>
-        <ProjectContainer>
-          <ContentTextWrapper>
-            <HeadingWithLine
-              size="lg"
-              weight="black"
-              transform="capitalize"
-              variant="h3"
-            >
-              Take control of your restaurant
-            </HeadingWithLine>
-            <Paragraph size="md">
-              Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w
-              przemyśle poligraficznym. Został po raz pierwszy użyty w XV w.
-              przez nieznanego drukarza do wypełnienia tekstem próbnej książki.
-            </Paragraph>
-          </ContentTextWrapper>
-        </ProjectContainer>
-      </ContentBackgroundContainer>
-      <ProjectContainer>
-        <ContentImage content={images[2]} />
-        <ContentImage content={images[3]} />
-      </ProjectContainer>
-    </ContentSection>
-    <ProjectFooter>
-      <ProjectContainer>
-        <ProjectFooterInfoWrapper>
-          <div>
-            <Heading
-              variant="h4"
-              size="md"
-              color="primary"
-              weight="black"
-              transform="capitalize"
-            >
-              Backend developer
-            </Heading>
-            <Paragraph size="sm">Artur Kowalski</Paragraph>
-          </div>
-          <div>
-            <Heading
-              variant="h4"
-              size="md"
-              color="primary"
-              weight="black"
-              transform="capitalize"
-            >
-              Project purpose
-            </Heading>
-            <Paragraph size="sm">Engineering work</Paragraph>
-          </div>
-        </ProjectFooterInfoWrapper>
-        <FooterActionWrapper>
-          <BackToTopButton small>Back to top</BackToTopButton>
-        </FooterActionWrapper>
-      </ProjectContainer>
-    </ProjectFooter>
+    <ProjectFooter />
   </>
 );
 export default ProjectTemplate;

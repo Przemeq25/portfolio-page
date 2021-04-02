@@ -1,58 +1,12 @@
 import styled, { css } from 'styled-components';
-import Button from '../../components/Button/Button';
-import Heading from '../../components/Heading/Heading';
+import Heading from '../Heading/Heading';
 
-export const ProjectDescrtiptionSection = styled.section`
-  padding: 200px 0;
-  transition: all 0.3s ease-in-out;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    padding: 100px 0px;
+export const Content = styled.article`
+  position: relative;
 `;
 
-export const DescriptionWrappepr = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    flex-direction: column;
-    justify-content: center;
-  }
-`;
-
-export const StyledSpan = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-export const DescriptionTextWrapper = styled.div`
-  flex: 1 1 50%;
-  margin: 50px 50px 50px 0px;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    margin: 50px 0;
-    text-align: center;
-  }
-`;
-
-export const DescrtiptionImage = styled.div`
-  width: 50%;
-  padding-top: 45%;
-  background-image: url(${({ content }) => content});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all 0.3s ease-in-out;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    width: 80%;
-    padding-top: 80%;
-  }
-
-  ${({ theme }) => theme.mediaBreakpoints.sm} {
-    width: 90%;
-    padding-top: 90%;
-  }
+export const ContentTextWrapper = styled.div`
+  position: relative;
 `;
 
 const pseudoElementLine = css`
@@ -64,10 +18,11 @@ const pseudoElementLine = css`
 export const HeadingWithLine = styled(Heading)`
   display: flex;
   align-items: center;
-  margin: 0 20px 30px;
+  margin: 0 0 30px;
 
   &:before {
     ${pseudoElementLine};
+    margin-right: 20px;
 
     ${({ theme }) => theme.mediaBreakpoints.md} {
       flex: none;
@@ -77,19 +32,12 @@ export const HeadingWithLine = styled(Heading)`
   }
   &:after {
     ${pseudoElementLine};
+    margin-left: 20px;
   }
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     flex-direction: column;
   }
-`;
-
-export const ContentSection = styled.article`
-  position: relative;
-`;
-
-export const ContentTextWrapper = styled.div`
-  position: relative;
 `;
 
 export const ContentBackgroundContainer = styled.div`
@@ -98,8 +46,8 @@ export const ContentBackgroundContainer = styled.div`
   align-items: center;
   padding: ${({ skewRight, skewLeft }) =>
     skewRight || skewLeft ? '350px 0' : '250px 0'};
-  transition: all 0.5s ease;
   position: relative;
+  margin-bottom: -50px;
   z-index: -1;
 
   ${({ skewLeft, skewRight }) => {
@@ -184,50 +132,5 @@ export const ContentImage = styled.div`
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     margin: 0 0 30px;
-  }
-`;
-
-export const ProjectFooter = styled.footer`
-  height: 350px;
-  background: linear-gradient(180deg, rgba(220, 219, 219, 0) 0%, #dcdbdb 100%);
-  position: relative;
-`;
-
-export const ProjectFooterInfoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-top: 100px;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    flex-direction: column;
-    text-align: center;
-
-    & > div {
-      margin-bottom: 10px;
-    }
-  }
-`;
-
-export const FooterActionWrapper = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
-export const BackToTopButton = styled(Button)`
-  &:before {
-    content: '\u2191';
-    display: block;
-    font-size: 30px;
-    margin-bottom: -5px;
-    font-weight: ${({ theme }) => theme.font.weight.regular};
-    transition: all 0.3s ease;
-  }
-
-  &:hover:before {
-    margin-bottom: 0px;
-    transform: scaleY(1.4);
   }
 `;

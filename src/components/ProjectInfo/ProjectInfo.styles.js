@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Paragraph from '../Paragraph/Paragraph';
 
-export const ProjectInfoWrapper = styled.div`
+export const ProjectInfoWrapper = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background.secondary};
   padding: 40px 0;
