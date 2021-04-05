@@ -11,16 +11,17 @@ export const SliderWrapper = styled.div`
   overflow: hidden;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 2px;
+  background: rgb(26, 26, 26);
+  min-height: 400px;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
-    height: 100vw;
+    height: calc(100vh - 20px);
   }
 `;
 
 export const SliderContent = styled.div`
-  transform: translateY(-${({ translate }) => translate}px);
-  transition: transform ease-out 200ms;
   ${boxSize};
+  position: relative;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     display: flex;
@@ -46,11 +47,15 @@ export const Arrow = styled.div`
   border-radius: 3px;
   transform: ${({ direction }) =>
     direction === 'up' ? 'rotate(-135deg)' : 'rotate(45deg)'};
-  transition: 200ms all ease-in;
+  transition: 300ms all ease-in;
   cursor: pointer;
 
-  &:hover {
+  &.activated {
     border-color: ${({ theme }) => theme.colors.primary};
+    transform: ${({ direction }) =>
+      direction === 'up'
+        ? 'translateY(-5px) scale(0.9) rotate(-135deg)'
+        : 'translateY(5px) scale(0.9) rotate(45deg)'};
   }
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
@@ -99,7 +104,6 @@ export const ContentContainer = styled.div`
     rgba(0, 0, 0, 0.6558824213279062) 0%,
     rgba(255, 255, 255, 0) 94%
   );
-  transition: 200ms all ease-in;
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     justify-content: flex-end;
@@ -112,28 +116,6 @@ export const ContentContainer = styled.div`
   }
 `;
 
-export const SlideParagraph = styled.p`
-  font-size: ${({ theme }) => theme.font.size.desktop.sm};
-  color: ${({ theme }) => theme.colors.background.tertiary};
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  letter-spacing: 2px;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    font-size: ${({ theme }) => theme.font.size.mobile.sm};
-  }
-`;
-
-export const SlideTitle = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.desktop.xl};
-  color: ${({ theme }) => theme.colors.contrastText};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  letter-spacing: 2px;
-
-  ${({ theme }) => theme.mediaBreakpoints.md} {
-    font-size: ${({ theme }) => theme.font.size.mobile.xl};
-  }
-`;
-
 export const SliderCounterWrapper = styled.div`
   position: absolute;
   bottom: 20px;
@@ -141,7 +123,7 @@ export const SliderCounterWrapper = styled.div`
   ddisplay: flex;
   justify-content: flex-end;
   flex-direction: column;
-  width: 60px;
+  width: 80px;
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     top: 20px;
@@ -153,14 +135,14 @@ export const SliderCounterItem = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: 500ms width ease-in;
+  padding-left: 20px;
 
   &:after {
-    transition: 500ms width ease-in;
     content: '';
     height: 5px;
     width: 100%;
     border-radius: 2px;
+
     margin: 3px 0 5px ${({ currentSlide }) => (currentSlide ? '4px' : 0)};
     background-color: ${({ currentSlide, theme }) =>
       currentSlide ? theme.colors.primary : theme.colors.contrastText};

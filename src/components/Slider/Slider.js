@@ -1,65 +1,75 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
+import gsap from 'gsap';
+import { Power4 } from 'gsap/all';
 import { SliderContent, SliderWrapper } from './Slider.styles';
 import SliderArrows from './SliderArrow';
 import Slide from './Slide';
 import SliderCounter from './SliderCounter';
 
 const Slider = ({ slides }) => {
-  const sliderRef = useRef(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [translate, setTranslate] = useState(0);
-  const [sizeToTranslate, setSizeToTranslate] = useState(0);
-
-  useEffect(() => {
-    setSizeToTranslate(sliderRef.current.clientHeight);
-  }, []);
-
-  useEffect(() => {
-    const resizeSlide = () => {
-      if (window.innerWidth >= 1280) {
-        setSizeToTranslate(sliderRef.current.clientHeight);
-      } else {
-        setSizeToTranslate(sliderRef.current.clientWidth);
-      }
-      setTranslate(activeSlideIndex * sizeToTranslate);
-    };
-
-    window.addEventListener('resize', resizeSlide);
-
-    return () => window.removeEventListener('resize', resizeSlide);
-  });
 
   const nextSlide = () => {
     if (activeSlideIndex === slides.length - 1) {
-      setTranslate(0);
       setActiveSlideIndex(0);
     } else {
       setActiveSlideIndex(activeSlideIndex + 1);
-      setTranslate((activeSlideIndex + 1) * sizeToTranslate);
     }
   };
 
   const prevSlide = () => {
     if (activeSlideIndex === 0) {
       setActiveSlideIndex(slides.length - 1);
-      setTranslate((slides.length - 1) * sizeToTranslate);
     } else {
       setActiveSlideIndex(activeSlideIndex - 1);
-      setTranslate((activeSlideIndex - 1) * sizeToTranslate);
     }
   };
 
   const pickSlide = (slideIndex) => {
-    setTranslate(slideIndex * sizeToTranslate);
     setActiveSlideIndex(slideIndex);
   };
 
   return (
     <SliderWrapper>
-      <SliderContent ref={sliderRef} translate={translate}>
-        {slides.map((slide) => (
-          <Slide content={slide} key={slide} />
+      <SliderContent>
+        {slides.map((slide, i) => (
+          <Transition
+            in={activeSlideIndex === i}
+            unmountOnExit
+            mountOnEnter
+            onEnter={(node) => {
+              const tl = gsap.timeline({
+                defaults: { ease: Power4.easeOut },
+              });
+
+              tl.set(node, {
+                y: 0,
+                autoAlpha: 0,
+                scale: 0.8,
+              });
+
+              tl.to(node, {
+                y: 0,
+                scale: 1,
+                autoAlpha: 1,
+                duration: 2,
+              }).fromTo(
+                [...node.children[0].children],
+                { autoAlpha: 0, y: 10 },
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  stagger: 0.2,
+                  duration: 1,
+                  delay: -1,
+                },
+              );
+            }}
+          >
+            <Slide content={slide} />
+          </Transition>
         ))}
       </SliderContent>
       <SliderArrows nextSlide={nextSlide} prevSlide={prevSlide} />

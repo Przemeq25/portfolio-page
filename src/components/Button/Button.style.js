@@ -11,10 +11,11 @@ export const buttonStyles = css`
     background: none;
     border: none;
     cursor: pointer;
+    text-decoration: none;
     position: relative;
     outline: none;
     z-index:1;
-    transition: 200ms transform ease-in-out;
+    transition: 200ms transform ease;
 
     &:after {
       content: '';
@@ -26,7 +27,7 @@ export const buttonStyles = css`
       border-color: ${({ theme }) => theme.colors.primary};
       border-radius: 2px;
       width: 100%;
-      transition: 200ms all ease-in-out;
+      transition: 200ms transform ease-in-out;
       }
 
     &:hover::after, &:active::after{
