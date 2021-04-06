@@ -31,7 +31,7 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
   size: PropTypes.oneOf(['md', 'lg', 'xl', 'title']),
   weight: PropTypes.oneOf(['medium', 'bold', 'black']),
-  color: PropTypes.oneOf(['primary', 'secondary', 'contrastText']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'contrastText', 'tertiary']),
   variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']),
   transform: PropTypes.oneOf(['uppercase', 'capitalize']),
   margin: PropTypes.number,

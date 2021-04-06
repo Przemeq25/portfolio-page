@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { BackgroundShapePrimary } from './Layout.style';
 import MainTemplate from '../MainTemplate/MainTemplate';
+import './index.css';
 
 const Layout = ({ children }) => (
   <>
