@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const MainTemplateWrapper = styled.div`
   padding: 100px 0px 100px 100px;
   display: flex;
-  position: relative;
   min-height: 100vh;
+  transition: padding 500ms ease;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     flex-direction: column;
@@ -13,6 +13,10 @@ export const MainTemplateWrapper = styled.div`
 
   ${({ theme }) => theme.mediaBreakpoints.sm} {
     padding: 20px;
+  }
+
+  @media all and (max-height: 600px) {
+    padding: 20px 20px 20px 20px;
   }
 `;
 
@@ -23,6 +27,7 @@ export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  overflow: hidden;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     width: 100%;
@@ -31,47 +36,26 @@ export const LeftContainer = styled.div`
 `;
 
 export const HeroContainer = styled.div`
-  margin-top: 15vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 0;
-    flex-direction: column;
-  }
-`;
-
-export const HeroParagraph = styled.p`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size ${({ theme }) => theme.font.size.desktop.lg};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  text-transform: capitalize;
-
-  ${({ theme }) => theme.mediaBreakpoints.sm} {
-    font-size ${({ theme }) => theme.font.size.mobile.lg};
-  }
-`;
-
-export const HeroH1 = styled.h1`
-  color: ${({ theme }) => theme.colors.secondary};
-  font-size ${({ theme }) => theme.font.size.desktop.title};
-  font-weight: ${({ theme }) => theme.font.weight.black};
-  text-transform: uppercase;
-  margin: 20px 0 40px;
-
-  ${({ theme }) => theme.mediaBreakpoints.sm} {
-    font-size ${({ theme }) => theme.font.size.mobile.title};
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
 export const MediaLinksContainer = styled.div`
   display: flex;
-  align-items: center;
   margin-top: auto;
-  padding-top: 50px;
+
+  ${({ theme }) => theme.mediaBreakpoints.lg} {
+    padding-bottom: 10px;
+    justify-content: center;
+  }
 `;
 
 export const MediaLink = styled.a`
@@ -88,17 +72,19 @@ export const MediaLink = styled.a`
   }
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
-    display:none
+    font-size ${({ theme }) => theme.font.size.mobile.md};
+    padding: 20px;
   }
 `;
 
 export const MainContainer = styled.main`
+  display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     padding: 10px 0px;
-    display: flex;
-    align-items: center;
     flex-direction: column;
   }
 `;

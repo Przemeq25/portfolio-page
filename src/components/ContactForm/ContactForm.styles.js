@@ -14,7 +14,7 @@ export const MailLink = styled.a`
 
 export const FormContainer = styled.form`
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     max-width: 400px;

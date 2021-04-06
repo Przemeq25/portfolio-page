@@ -62,7 +62,7 @@ const ProjectHeader = ({ prevProject, nextProject }) => {
 
   return (
     <ProjectHeaderWrapper ref={headerRef}>
-      <ProjectChangerWrapper to={prevProject?.path}>
+      <ProjectChangerWrapper to={`/${prevProject?.slug}`}>
         <ProjectChanger color="secondary" weight="black" size="xs">
           PREV-PROJECT
         </ProjectChanger>
@@ -71,7 +71,7 @@ const ProjectHeader = ({ prevProject, nextProject }) => {
         </Paragraph>
       </ProjectChangerWrapper>
       <Logo />
-      <ProjectChangerWrapper to={nextProject?.path} next="true">
+      <ProjectChangerWrapper to={`/${nextProject?.slug}`} next="true">
         <ProjectChanger color="secondary" weight="black" size="xs" next>
           NEXT-PROJECT
         </ProjectChanger>
@@ -92,6 +92,6 @@ const ProjectHeader = ({ prevProject, nextProject }) => {
 export default ProjectHeader;
 
 ProjectHeader.propTypes = {
-  prevProject: PropTypes.shape({ title: '', path: '' }).isRequired,
-  nextProject: PropTypes.shape({ title: '', path: '' }).isRequired,
+  prevProject: PropTypes.shape({ title: '', slug: '' }).isRequired,
+  nextProject: PropTypes.shape({ title: '', slug: '' }).isRequired,
 };

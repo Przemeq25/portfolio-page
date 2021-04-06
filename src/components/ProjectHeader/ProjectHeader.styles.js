@@ -46,6 +46,7 @@ export const ProjectChangerWrapper = styled(Link)`
   visibility: hidden;
   text-align: ${({ next }) => (next ? 'right' : 'left')};
   transition: all 300ms ease-in-out;
+  text-decoration: none;
 
   &:hover > ${ProjectChanger} {
     opacity: 0;

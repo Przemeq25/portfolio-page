@@ -4,6 +4,8 @@ import { buttonStyles } from '../Button/Button.style';
 
 export const HeroImg = styled.div`
   height: 60vh;
+  background: url(${({ content }) => content}) no-repeat center;
+  background-size: cover;
 `;
 
 export const HeroSection = styled.section`

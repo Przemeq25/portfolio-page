@@ -31,7 +31,7 @@ const ProjectFooter = ({ info }) => {
       <ProjectContainer>
         <ProjectFooterInfoWrapper>
           {info.map(({ heading, paragraph }) => (
-            <div>
+            <div key={heading}>
               <Heading
                 variant="h4"
                 size="md"

@@ -37,7 +37,7 @@ export const DescrtiptionImage = styled.div`
   width: 50%;
   padding-top: 45%;
   background-image: url(${({ content }) => content});
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transition: padding 0.3s ease;

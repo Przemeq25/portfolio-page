@@ -30,28 +30,42 @@ const ProjectInfo = ({ projectInfo }) => {
       },
     });
   });
+
+  const renderList = (key = '') =>
+    key.split(', ').map((item) => (
+      <ProjectInfoListItemText
+        key={item}
+        size="xs"
+        weight="light"
+        color="tertiary"
+      >
+        {item}
+      </ProjectInfoListItemText>
+    ));
+
   return (
     <ProjectInfoWrapper ref={wrapperRef}>
       <ProjectContainer>
         <ProjectInfoList ref={infoRef}>
-          {projectInfo.map(({ title, items }) => (
-            <ProjectInfoListItem key={title}>
-              <ProjectInfoListItemText size="md" weight="medium" margin={10}>
-                {title}
-              </ProjectInfoListItemText>
+          <ProjectInfoListItem>
+            <ProjectInfoListItemText size="md" weight="medium" margin={10}>
+              Role
+            </ProjectInfoListItemText>
+            {renderList(projectInfo?.role)}
+          </ProjectInfoListItem>
 
-              {items.split(', ').map((item) => (
-                <ProjectInfoListItemText
-                  key={item}
-                  size="xs"
-                  weight="light"
-                  color="tertiary"
-                >
-                  {item}
-                </ProjectInfoListItemText>
-              ))}
-            </ProjectInfoListItem>
-          ))}
+          <ProjectInfoListItem>
+            <ProjectInfoListItemText size="md" weight="medium" margin={10}>
+              Tech Stack
+            </ProjectInfoListItemText>
+            {renderList(projectInfo?.techStack)}
+          </ProjectInfoListItem>
+          <ProjectInfoListItem>
+            <ProjectInfoListItemText size="md" weight="medium" margin={10}>
+              Date
+            </ProjectInfoListItemText>
+            {renderList(projectInfo?.date)}
+          </ProjectInfoListItem>
         </ProjectInfoList>
       </ProjectContainer>
     </ProjectInfoWrapper>
@@ -60,16 +74,12 @@ const ProjectInfo = ({ projectInfo }) => {
 export default ProjectInfo;
 
 ProjectInfo.propTypes = {
-  projectInfo: PropTypes.arrayOf(PropTypes.object),
+  projectInfo: PropTypes.shape({
+    date: PropTypes.string,
+    role: PropTypes.string,
+    techStack: PropTypes.string,
+  }),
 };
-
 ProjectInfo.defaultProps = {
-  projectInfo: [
-    { title: 'Role', items: '-' },
-    {
-      title: 'Tech stack',
-      items: '-',
-    },
-    { title: 'Date', items: '-' },
-  ],
+  projectInfo: { role: '', techStack: '', date: '' },
 };

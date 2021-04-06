@@ -15,6 +15,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'PORTFOLIO',
+        fieldName: 'portfolio',
+        url:
+          'https://api-eu-central-1.graphcms.com/v2/ckn5y6x6jvddr01xsg80zbf9o/master',
+      },
+    },
+    `gatsby-plugin-transition-link`,
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -26,7 +36,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/logo.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-styled-components',
