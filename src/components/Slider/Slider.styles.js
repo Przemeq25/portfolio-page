@@ -1,4 +1,6 @@
+import { TransitionLink } from 'gatsby-plugin-transition-link/components/TransitionLink';
 import styled, { css } from 'styled-components';
+import { buttonStyles } from '../Button/Button.style';
 
 const boxSize = css`
   width: 100%;
@@ -36,7 +38,9 @@ export const SlideItem = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   flex-shrink: 0;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const Arrow = styled.div`
@@ -162,4 +166,8 @@ export const SliderCounterItemParagraph = styled.p`
   ${({ theme }) => theme.mediaBreakpoints.md} {
     font-size: ${({ theme }) => theme.font.size.mobile.xs};
   }
+`;
+
+export const LinkButton = styled(TransitionLink)`
+  ${buttonStyles};
 `;

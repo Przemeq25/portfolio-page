@@ -15,6 +15,15 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'PORTFOLIO',
+        fieldName: 'portfolio',
+        url:
+          'https://api-eu-central-1.graphcms.com/v2/ckn5y6x6jvddr01xsg80zbf9o/master',
+      },
+    },
     `gatsby-plugin-transition-link`,
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',

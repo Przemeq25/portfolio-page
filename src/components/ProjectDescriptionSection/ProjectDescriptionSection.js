@@ -57,7 +57,7 @@ const ProjectDescriptionSection = ({
               {description}
             </Paragraph>
           </DescriptionTextWrapper>
-          <DescrtiptionImage content={descriptionImage} ref={imageRef} />
+          <DescrtiptionImage content={descriptionImage.url} ref={imageRef} />
         </DescriptionWrappepr>
       </ProjectContainer>
     </DescriptionSection>
@@ -69,5 +69,8 @@ export default ProjectDescriptionSection;
 ProjectDescriptionSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  descriptionImage: PropTypes.string.isRequired,
+  descriptionImage: PropTypes.shape({
+    fileName: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };

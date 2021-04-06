@@ -3,7 +3,6 @@ import Button from '../Button/Button';
 
 export const ProjectFooterWrapper = styled.footer`
   height: 350px;
-  background: linear-gradient(180deg, rgba(220, 219, 219, 0) 0%, #dcdbdb 100%);
   position: relative;
 `;
 

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import gsap from 'gsap';
-import Img from 'gatsby-image';
+import gsap, { Power4 } from 'gsap/all';
 import Heading from '../Heading/Heading';
 import { ProjectContainer } from '../ProjectContainer/ProjectContainer.styles';
 import {
@@ -19,17 +18,15 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
   const heroRef = useRef(null);
 
   useEffect(() => {
-    gsap.set([imageRef.current, heroRef.current.children], {
+    gsap.set([imageRef.current.children[0], heroRef.current.children], {
       autoAlpha: 0,
     });
 
-    const tl = gsap.timeline([imageRef.current, ...heroRef.current.children], {
-      defaults: { ease: 'power3.inOut' },
+    const tl = gsap.timeline([...heroRef.current.children], {
+      defaults: { ease: Power4.easeInOut },
     });
 
-    tl.to(imageRef.current, {
-      autoAlpha: 1,
-    }).fromTo(
+    tl.to(imageRef.current.children[0], { autoAlpha: 1, duration: 2 }).fromTo(
       heroRef.current.children,
       { y: '-=10' },
       { y: '+=10', autoAlpha: 1, stagger: 0.3 },
@@ -38,9 +35,7 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
 
   return (
     <HeroSection ref={imageRef}>
-      <HeroImg>
-        <Img src={image} />
-      </HeroImg>
+      <HeroImg content={image.url} />
       <ProjectContainer>
         <HeroWrapper ref={heroRef}>
           <Heading size="title" weight="black" transform="capitalize">
@@ -70,7 +65,10 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
 export default ProjectHeroSection;
 
 ProjectHeroSection.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    fileName: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   github: PropTypes.string,

@@ -55,7 +55,7 @@ const ProjectContent = ({ title, description, images, ...background }) => {
   }, []);
   return (
     <Content>
-      <ContentBackgroundContainer {...background}>
+      <ContentBackgroundContainer {...background.background}>
         <ProjectContainer>
           <ContentTextWrapper ref={titleRef}>
             <HeadingWithLine
@@ -71,8 +71,8 @@ const ProjectContent = ({ title, description, images, ...background }) => {
         </ProjectContainer>
       </ContentBackgroundContainer>
       <ProjectContainer ref={imagesRef}>
-        {images.map((image) => (
-          <ContentImage content={image} key={image} />
+        {images?.map(({ fileName, url }) => (
+          <ContentImage content={url} key={fileName} />
         ))}
       </ProjectContainer>
     </Content>
@@ -84,5 +84,10 @@ export default ProjectContent;
 ProjectContent.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      fileName: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

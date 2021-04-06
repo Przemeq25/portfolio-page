@@ -29,7 +29,7 @@ const About = () => {
         <Paragraph size="md" margin={50} weight="light">
           {about.description}
         </Paragraph>
-        <Heading as="h3" weight="bold" size="lg" margin={20}>
+        <Heading as="h3" weight="bold" size="md" margin={16} color="tertiary">
           My skills
         </Heading>
         <List items={about.skills} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import gsap from 'gsap';
@@ -10,6 +10,7 @@ import SliderCounter from './SliderCounter';
 
 const Slider = ({ slides }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const sliderWrapperRef = useRef(null);
 
   const nextSlide = () => {
     if (activeSlideIndex === slides.length - 1) {
@@ -32,29 +33,27 @@ const Slider = ({ slides }) => {
   };
 
   return (
-    <SliderWrapper>
+    <SliderWrapper ref={sliderWrapperRef}>
       <SliderContent>
         {slides.map((slide, i) => (
           <Transition
             in={activeSlideIndex === i}
             unmountOnExit
-            mountOnEnter
+            timeout={{ appear: 200, enter: 4000, exit: 100 }}
             onEnter={(node) => {
               const tl = gsap.timeline({
                 defaults: { ease: Power4.easeOut },
               });
 
               tl.set(node, {
-                y: 0,
                 autoAlpha: 0,
-                scale: 0.8,
+                scale: 1.2,
               });
 
               tl.to(node, {
-                y: 0,
                 scale: 1,
                 autoAlpha: 1,
-                duration: 2,
+                duration: 4,
               }).fromTo(
                 [...node.children[0].children],
                 { autoAlpha: 0, y: 10 },
@@ -63,12 +62,13 @@ const Slider = ({ slides }) => {
                   y: 0,
                   stagger: 0.2,
                   duration: 1,
-                  delay: -1,
+                  delay: -3.2,
                 },
               );
             }}
+            key={slide.title}
           >
-            <Slide content={slide} />
+            <Slide content={slide} sliderWrapperRef={sliderWrapperRef} />
           </Transition>
         ))}
       </SliderContent>
