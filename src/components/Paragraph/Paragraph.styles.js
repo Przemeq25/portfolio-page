@@ -6,6 +6,7 @@ export const StyledParagraph = styled.p`
   font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
   margin-bottom: ${({ margin }) => margin}px;
   line-height: 1.5;
+  text-align: ${({ align }) => align || 'left'};
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     font-size: ${({ theme, size }) => theme.font.size.mobile[size]};
