@@ -26,7 +26,11 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
       defaults: { ease: Power4.easeInOut },
     });
 
-    tl.to(imageRef.current.children[0], { autoAlpha: 1, duration: 2 }).fromTo(
+    tl.to(imageRef.current.children[0], {
+      autoAlpha: 1,
+      duration: 2,
+      delay: -0.8,
+    }).fromTo(
       heroRef.current.children,
       { y: '-=10' },
       { y: '+=10', autoAlpha: 1, stagger: 0.3 },

@@ -1,13 +1,19 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import { BackgroundShapePrimary } from './Layout.style';
 import MainTemplate from '../MainTemplate/MainTemplate';
+import { GlobalStyles } from '../../themes/GlobalStyles';
+import { theme } from '../../themes/theme';
 import './index.css';
 
 const Layout = ({ children }) => (
   <>
-    <BackgroundShapePrimary />
-    <MainTemplate>{children}</MainTemplate>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <BackgroundShapePrimary />
+      <MainTemplate>{children}</MainTemplate>
+    </ThemeProvider>
   </>
 );
 

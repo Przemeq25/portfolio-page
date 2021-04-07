@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TransitionLink } from 'gatsby-plugin-transition-link/components/TransitionLink';
 import gsap from 'gsap';
 
-const NavigationTransitionLink = ({ children, path, ...rest }) => {
+const NavigationTransitionLink = ({ children, path, scroll, ...rest }) => {
   const exitAnimation = () => {
     gsap.to('main', { autoAlpha: 0 });
   };
@@ -19,7 +19,7 @@ const NavigationTransitionLink = ({ children, path, ...rest }) => {
         length: 1,
       }}
       entry={{
-        trigger: () => entryAnimation(),
+        trigger: () => scroll && entryAnimation(),
         delay: 1,
       }}
       to={path}
@@ -34,4 +34,9 @@ export default NavigationTransitionLink;
 NavigationTransitionLink.propTypes = {
   children: PropTypes.node.isRequired,
   path: PropTypes.string.isRequired,
+  scroll: PropTypes.bool,
+};
+
+NavigationTransitionLink.defaultProps = {
+  scroll: true,
 };

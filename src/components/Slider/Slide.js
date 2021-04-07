@@ -51,6 +51,7 @@ const Slide = ({ content, sliderWrapperRef }) => {
                 })
                 .to([node.children[0], node.children[1].children[0]], {
                   autoAlpha: 0,
+                  duration: 0.2,
                 })
 
                 .to(sliderWrapperRef.current, {
@@ -58,7 +59,7 @@ const Slide = ({ content, sliderWrapperRef }) => {
                   height: '60vh',
                 });
             },
-            length: 4,
+            length: 3,
           }}
           entry={{
             trigger: () => {
@@ -69,12 +70,12 @@ const Slide = ({ content, sliderWrapperRef }) => {
                 },
                 {
                   overflow: 'auto',
-                  delay: 1,
+                  delay: 1.5,
                 },
               );
             },
 
-            delay: 3.5,
+            delay: 2.5,
           }}
         >
           See more
@@ -95,6 +96,6 @@ Slide.propTypes = {
   }).isRequired,
   sliderWrapperRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    PropTypes.shape({ current: PropTypes.elementType }),
   ]).isRequired,
 };

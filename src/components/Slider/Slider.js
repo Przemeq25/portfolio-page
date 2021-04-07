@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import gsap from 'gsap';
@@ -11,6 +11,21 @@ import SliderCounter from './SliderCounter';
 const Slider = ({ slides }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const sliderWrapperRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      sliderWrapperRef.current,
+      {
+        autoAlpha: 0,
+        x: 200,
+      },
+      {
+        autoAlpha: 1,
+        x: 0,
+        ease: Power4.easeOut,
+      },
+    );
+  }, []);
 
   const nextSlide = () => {
     if (activeSlideIndex === slides.length - 1) {

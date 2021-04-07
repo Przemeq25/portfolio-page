@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import ProjectHeader from '../../components/ProjectHeader/ProjectHeader';
 import ProjectHeroSection from '../../components/ProjectHeroSection/ProjectHeroSection';
 import ProjectInfo from '../../components/ProjectInfo/ProjectInfo';
@@ -8,33 +9,38 @@ import ProjectContent from '../../components/ProjectContent/ProjectContent';
 import ProjectFooter from '../../components/ProjectFooter/ProjectFooter';
 import { BottomBackground } from './ProjectTemplate.styles';
 import SEO from '../../components/seo';
+import { GlobalStyles } from '../../themes/GlobalStyles';
+import { theme } from '../../themes/theme';
 
 const ProjectTemplate = ({ pageContext: { data, prevPage, nextPage } }) => (
   <>
-    <SEO title={data.title} />
-    <ProjectHeader
-      prevProject={{ title: prevPage.title, slug: prevPage.slug }}
-      nextProject={{ title: nextPage.title, slug: nextPage.slug }}
-    />
-    <ProjectHeroSection
-      image={data.thumbnail}
-      github={data.github}
-      title={data.title}
-      subtitle={data.subtitle}
-      live={data.live}
-    />
-    <ProjectInfo projectInfo={data.projectInfo} />
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <SEO title={data.title} />
+      <ProjectHeader
+        prevProject={{ title: prevPage.title, slug: prevPage.slug }}
+        nextProject={{ title: nextPage.title, slug: nextPage.slug }}
+      />
+      <ProjectHeroSection
+        image={data.thumbnail}
+        github={data.github}
+        title={data.title}
+        subtitle={data.subtitle}
+        live={data.live}
+      />
+      <ProjectInfo projectInfo={data.projectInfo} />
 
-    <ProjectDescriptionSection
-      title={data.title}
-      description={data.description}
-      descriptionImage={data.descriptionImage}
-    />
-    {data.content?.map((contentArticle) => (
-      <ProjectContent key={contentArticle.title} {...contentArticle} />
-    ))}
-    <BottomBackground />
-    <ProjectFooter info={data.projectFooterInfos} />
+      <ProjectDescriptionSection
+        title={data.title}
+        description={data.description}
+        descriptionImage={data.descriptionImage}
+      />
+      {data.content?.map((contentArticle) => (
+        <ProjectContent key={contentArticle.title} {...contentArticle} />
+      ))}
+      <BottomBackground />
+      <ProjectFooter info={data.projectFooterInfos} />
+    </ThemeProvider>
   </>
 );
 export default ProjectTemplate;

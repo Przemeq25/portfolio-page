@@ -14,6 +14,7 @@ export const ProjectHeaderWrapper = styled.header`
   padding: 10px 0px;
   z-index: 100;
   transition: all 300ms ease-in-out;
+
   ${({ theme }) => theme.mediaBreakpoints.md} {
     justify-content: center;
   }
