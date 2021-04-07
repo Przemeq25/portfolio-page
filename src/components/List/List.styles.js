@@ -7,7 +7,7 @@ export const StyledList = styled.ul`
 
 export const ListItem = styled.li`
   font-size: ${({ theme }) => theme.font.size.desktop.sm};
-  font-weight: ${({ theme }) => theme.font.weight.light};
+  font-weight: ${({ theme }) => theme.font.weight.regular};
   padding-bottom: 5px;
 
   &::before {

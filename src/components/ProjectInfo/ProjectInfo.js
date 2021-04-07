@@ -21,7 +21,7 @@ const ProjectInfo = ({ projectInfo }) => {
 
     gsap.to(infoRef.current.children, {
       autoAlpha: 1,
-      x: '+=10',
+      x: 0,
       ease: 'power2.inOut',
       stagger: 0.3,
       scrollTrigger: {

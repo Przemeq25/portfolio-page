@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { graphql, useStaticQuery } from 'gatsby';
 import Button from '../components/Button/Button';
 import Heading from '../components/Heading/Heading';
 import List from '../components/List/List';
@@ -11,6 +12,17 @@ import { PageContainer } from '../templates/PageTemplate/PageTemplate.styles';
 
 const About = () => {
   const aboutRef = useRef(null);
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: { extension: { eq: "pdf" } }) {
+        edges {
+          node {
+            publicURL
+          }
+        }
+      }
+    }
+  `);
 
   useEffect(() => {
     gsap.fromTo(
@@ -19,6 +31,7 @@ const About = () => {
       { autoAlpha: 1, x: 0, stagger: 0.2 },
     );
   }, []);
+
   return (
     <Layout center>
       <SEO title="About" />
@@ -26,14 +39,21 @@ const About = () => {
         <Heading as="h2" color="primary" weight="bold" size="xl" margin={50}>
           About me
         </Heading>
-        <Paragraph size="md" margin={50} weight="light">
+        <Paragraph size="md" margin={50} weight="regular">
           {about.description}
         </Paragraph>
         <Heading as="h3" weight="bold" size="md" margin={16} color="tertiary">
           My skills
         </Heading>
         <List items={about.skills} />
-        <Button small>Download CV</Button>
+        <Button
+          small
+          as="a"
+          href={`${data.allFile.edges[0].node.publicURL}`}
+          download
+        >
+          Download CV
+        </Button>
       </PageContainer>
     </Layout>
   );

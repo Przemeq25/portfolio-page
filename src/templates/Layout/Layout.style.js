@@ -20,16 +20,3 @@ export const BackgroundShapePrimary = styled.div`
     display: none;
   }
 `;
-
-export const BackgroundShapeSecondary = styled.div`
-  ${shapeStyle}
-  bottom:0;
-  right: 0;
-  clip-path: polygon(100% 100%, 50% 100%, 100% 20%);
-  background-color: ${({ theme }) => theme.colors.background.primary};
-  z-index: -2;
-
-  ${({ theme }) => theme.mediaBreakpoints.lg} {
-    display: none;
-  }
-`;

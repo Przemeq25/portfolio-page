@@ -31,6 +31,13 @@ const ContactForm = ({ mail }) => {
     <Formik
       initialValues={{ email: '', name: '', message: '' }}
       validationSchema={contactFormValidation}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        setSubmitting(false);
+        resetForm();
+        window.open(
+          `mailto:${mail}?subject=${values.name}&body=${values.message}`,
+        );
+      }}
     >
       {({
         handleChange,

@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { TransitionLink } from 'gatsby-plugin-transition-link/components/TransitionLink';
 import styled from 'styled-components';
 import Paragraph from '../Paragraph/Paragraph';
 
@@ -39,7 +39,7 @@ export const ProjectChanger = styled(Paragraph)`
   }
 `;
 
-export const ProjectChangerWrapper = styled(Link)`
+export const ProjectChangerWrapper = styled(TransitionLink)`
   width: 100%;
   padding: 0px 60px;
   cursor: pointer;

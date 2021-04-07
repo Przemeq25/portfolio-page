@@ -38,24 +38,43 @@ const Slide = ({ content, sliderWrapperRef }) => {
                 },
               )
                 .to(sliderWrapperRef.current, {
-                  position: 'absolute',
+                  position: window.innerWidth < 1280 ? 'block' : 'absolute',
                   right: 0,
                   width: '100vw',
                   height: '100vh',
                   boxShadow: 'none',
                 })
+                .add(() => window.scroll(0, 0))
+                .to(sliderWrapperRef.current, {
+                  position: window.innerWidth < 1280 ? 'absolute' : 'block',
+                  top: 0,
+                })
                 .to([node.children[0], node.children[1].children[0]], {
                   autoAlpha: 0,
                 })
+
                 .to(sliderWrapperRef.current, {
                   top: 0,
                   height: '60vh',
                 });
             },
-            length: 3,
+            length: 4,
           }}
           entry={{
-            delay: 2.5,
+            trigger: () => {
+              gsap.fromTo(
+                document.body,
+                {
+                  overflow: 'hidden',
+                },
+                {
+                  overflow: 'auto',
+                  delay: 1,
+                },
+              );
+            },
+
+            delay: 3.5,
           }}
         >
           See more

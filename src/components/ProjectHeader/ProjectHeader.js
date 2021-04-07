@@ -60,9 +60,22 @@ const ProjectHeader = ({ prevProject, nextProject }) => {
     });
   }, []);
 
+  const exitAnimation = (node, left) => {
+    gsap.to(node, { x: left ? '100%' : '-100%', autoAlpha: 0 });
+  };
+
   return (
     <ProjectHeaderWrapper ref={headerRef}>
-      <ProjectChangerWrapper to={`/${prevProject?.slug}`}>
+      <ProjectChangerWrapper
+        to={`/${prevProject?.slug}`}
+        exit={{
+          trigger: ({ node }) => exitAnimation(node, true),
+          length: 2,
+        }}
+        entry={{
+          delay: 1,
+        }}
+      >
         <ProjectChanger color="secondary" weight="black" size="xs">
           PREV-PROJECT
         </ProjectChanger>
@@ -71,7 +84,17 @@ const ProjectHeader = ({ prevProject, nextProject }) => {
         </Paragraph>
       </ProjectChangerWrapper>
       <Logo />
-      <ProjectChangerWrapper to={`/${nextProject?.slug}`} next="true">
+      <ProjectChangerWrapper
+        to={`/${nextProject?.slug}`}
+        next="true"
+        exit={{
+          trigger: ({ node }) => exitAnimation(node),
+          length: 2,
+        }}
+        entry={{
+          delay: 1,
+        }}
+      >
         <ProjectChanger color="secondary" weight="black" size="xs" next>
           NEXT-PROJECT
         </ProjectChanger>

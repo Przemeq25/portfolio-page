@@ -11,7 +11,7 @@ export const SliderWrapper = styled.div`
   ${boxSize};
   position: relative;
   overflow: hidden;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(38, 57, 77, 0.5) 0px 20px 30px -10px;
   border-radius: 2px;
   background: rgb(26, 26, 26);
   min-height: 400px;
@@ -102,12 +102,6 @@ export const ContentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  background: linear-gradient(
-    138deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 0.6558824213279062) 0%,
-    rgba(255, 255, 255, 0) 94%
-  );
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
     justify-content: flex-end;
