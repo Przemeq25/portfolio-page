@@ -17,12 +17,14 @@ const Slider = ({ slides }) => {
       sliderWrapperRef.current,
       {
         autoAlpha: 0,
-        x: 200,
+        x: 150,
       },
       {
         autoAlpha: 1,
         x: 0,
         ease: Power4.easeOut,
+        delay: 0.5,
+        duration: 1.5,
       },
     );
   }, []);
