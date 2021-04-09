@@ -58,7 +58,11 @@ const ProjectHeroSection = ({ image, title, subtitle, github, live }) => {
                 Private
               </ButtonLink>
             )}
-            {live && <Button small>Live</Button>}
+            {live && (
+              <Button small as="a" href={live} target="_blank">
+                Live
+              </Button>
+            )}
           </LinksWrapper>
         </HeroWrapper>
       </ProjectContainer>

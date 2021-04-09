@@ -82,6 +82,7 @@ export const MainContainer = styled.main`
   width: 100%;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
 
   ${({ theme }) => theme.mediaBreakpoints.lg} {
     padding: 10px 0px;

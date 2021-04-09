@@ -122,7 +122,8 @@ export const ContentImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  box-shadow: ${({ shadow }) =>
+    shadow ? 'rgba(0, 0, 0, 0.1) 0px 12px 12px' : 'none'};
   margin: 0 0 80px;
   transition: all 0.5s ease;
 

@@ -30,7 +30,7 @@ const ProjectDescriptionSection = ({
       defaults: { ease: 'power3.inOut' },
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: '60% bottom',
+        start: '40% bottom',
       },
     });
     tl.fromTo(

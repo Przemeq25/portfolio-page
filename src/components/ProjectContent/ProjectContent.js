@@ -71,8 +71,8 @@ const ProjectContent = ({ title, description, images, ...background }) => {
         </ProjectContainer>
       </ContentBackgroundContainer>
       <ProjectContainer ref={imagesRef}>
-        {images?.map(({ fileName, url }) => (
-          <ContentImage content={url} key={fileName} />
+        {images?.map(({ fileName, url, shadow }) => (
+          <ContentImage content={url} key={fileName} shadow={shadow?.shadow} />
         ))}
       </ProjectContainer>
     </Content>
