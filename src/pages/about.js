@@ -39,8 +39,11 @@ const About = () => {
         <Heading as="h2" color="primary" weight="bold" size="xl" margin={50}>
           About me
         </Heading>
-        <Paragraph size="md" margin={50} weight="regular">
+        <Paragraph size="md" margin={10} weight="medium">
           {about.description}
+        </Paragraph>
+        <Paragraph size="md" margin={45} weight="medium">
+          {about.sdDescription}
         </Paragraph>
         <Heading as="h3" weight="bold" size="md" margin={16} color="tertiary">
           My skills

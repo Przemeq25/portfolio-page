@@ -8,19 +8,17 @@ export const HeroImg = styled.div`
   background-size: cover;
 `;
 
-export const HeroSection = styled.section`
-  min-height: 100vh;
-`;
+export const HeroSection = styled.section``;
 
 export const HeroWrapper = styled.div`
-  margin: 50px 0;
+  margin: 50px 0 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
   ${({ theme }) => theme.mediaBreakpoints.md} {
-    margin: 20px 0px;
+    margin: 30px 0px 80px;
   }
 `;
 

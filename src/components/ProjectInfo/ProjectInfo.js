@@ -24,12 +24,13 @@ const ProjectInfo = ({ projectInfo }) => {
       x: 0,
       ease: 'power2.inOut',
       stagger: 0.3,
+      duration: 1,
       scrollTrigger: {
         trigger: wrapperRef.current,
-        start: '50 bottom',
+        start: '50 90%',
       },
     });
-  });
+  }, []);
 
   const renderList = (key = '') =>
     key.split(', ').map((item) => (
